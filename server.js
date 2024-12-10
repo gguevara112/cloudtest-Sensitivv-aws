@@ -6,7 +6,8 @@ import axios from 'axios';
 import dotenv from 'dotenv';
 import { OAuth2Client } from 'google-auth-library';
 import bodyParser from 'body-parser';
-
+import path from 'path';
+import { fileURLToPath } from 'url';
 dotenv.config();
 
 const app = express();
@@ -14,11 +15,21 @@ const port = process.env.PORT || 5001;
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 const clientG = new OAuth2Client('785282538969-nhq7ursh8lkblr90a9rvi0qlg2ejjqmk.apps.googleusercontent.com');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
+
+// Sirve los archivos estáticos
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Maneja todas las rutas con el archivo index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 
 // Conexión a la base de datos
