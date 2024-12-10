@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-page {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: 606px;   
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto ;
+  opacity: 0; /* Oculto inicialmente */
+  transition: opacity 2s ease-in-out; /* Transición gradual */
+}
+
+.banner-visible {
+  opacity: 1; /* Visible cuando se monte */
+}
+
+.iiikkkikiknnkk{
+  display: flex; /* Habilita flexbox */
+  flex-direction: column; /* Asegura que el texto y el SVG estén en columnas */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  width: 100px;
+} 
+
+.banner3-text {
+    margin:auto;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    display: flex; /* Habilita flexbox */
+    flex-direction: column; /* Asegura que el texto y el SVG estén en columnas */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+  }
+  
+.blockoimko1 {
+  max-width: 920px;
+  background-color: #ffffff;
+  padding: 60px;
+  border-bottom: 2px solid #cccccc;
+
+  text-align: left;
+  min-width: 200px;
+  margin: 2% auto;
+}
+
+.blockoimko1 .title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.blockoimko1 .body {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.image-containedr img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footerd {
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+  margin-top: 250px;
+}
+
+.footerd p {
+  margin: 0;
+
+  font-size: 14px;
+  color: #888;
+}
+
+.footer-linddks {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-linddks li {
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+}
+
+.footer-linddks li:hover {
+  text-decoration: underline;
+}

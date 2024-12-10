@@ -1,0 +1,79 @@
+.asdfContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zxcvHeader {
+  font-size: 24px;
+  margin-left: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.qwerFilters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+
+}
+
+.mnbvWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100px;
+  height: 45px;
+  background-color: #fafafd;
+  border-radius: 8px;
+}
+
+.uiopIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lkjhIcon svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.circle-buttonz {
+  background-color: white;
+  border: 1px solid #ccc; /* Borde del botón */
+  border-radius: 50px; /* Bordes redondeados, simulando un skate */
+  margin-left: 10px; /* Espaciado interno del botón */
+  font-size: 14px; /* Tamaño del texto */
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  width: 100px; 
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Animación al interactuar */
+}
+
+.circle-buttonz:hover {
+  border: 1px solid #a7a7a7; /* Borde del botón */
+  background-color: #f0f0f0; /* Cambia de color al pasar el mouse */
+}
+
+.circle-buttonz:active {
+  transform: scale(0.95); /* Hace el botón ligeramente más pequeño al presionarlo */
+}
+
