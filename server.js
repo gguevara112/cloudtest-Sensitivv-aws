@@ -21,10 +21,11 @@ const __dirname = path.dirname(__filename);
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-  origin: ['http://54.235.228.15:5173'], // Cambia a tu IP pública
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
+
 
 app.use(express.json());
 

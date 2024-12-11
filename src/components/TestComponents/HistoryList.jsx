@@ -16,7 +16,7 @@ const HistoryList = () => {
     const fetchTests = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(`http://54.235.228.15:5173/api/testmade/${userId}`);
+        const response = await axios.get(`http://${import.meta.env.VITE_API_URL}/api/testmade/${userId}`);
         const tests = response.data;
 
         // Obtiene detalles adicionales de los productos desde Open Food Facts

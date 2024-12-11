@@ -20,7 +20,7 @@ const History = () => {
     const fetchRecentlyViewed = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(`http://54.235.228.15:5173/api/history/${userId}`);
+        const response = await axios.get(`http://${import.meta.env.VITE_API_URL}/api/history/${userId}`);
         setRecentlyViewed(response.data);
       } catch (error) {
         console.error("Error al obtener el historial:", error);

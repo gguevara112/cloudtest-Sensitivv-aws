@@ -71,7 +71,7 @@ const WidgetGridTest = () => {
     const category = buttonLabels[buttonIndex].category;
 
     try {
-      const response = await axios.post(`http://54.235.228.15:5173/api/listsensitivity`, {
+      const response = await axios.post(`http://${import.meta.env.VITE_API_URL}/api/listsensitivity`, {
         userID: userId,
         itemID: selectedProductId,
         category,

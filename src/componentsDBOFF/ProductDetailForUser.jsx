@@ -52,7 +52,7 @@ const ProductDetailForUser = () => {
   
         // Obtener la reacción de sensibilidad
         const sensitivityResponse = await axios.get(
-          `http://54.235.228.15:5173/api/listsensitivity/${userId}/${selectedProductId}`
+          `http://${import.meta.env.VITE_API_URL}/api/listsensitivity/${userId}/${selectedProductId}`
         );
         if (sensitivityResponse.data?.category) {
           const category = sensitivityResponse.data.category;
@@ -69,13 +69,13 @@ const ProductDetailForUser = () => {
   
         // Verificar si está en la wishlist
         const wishlistResponse = await axios.get(
-          `http://54.235.228.15:5173/api/wishlist/${userId}/${selectedProductId}`
+          `http://${import.meta.env.VITE_API_URL}/api/wishlist/${userId}/${selectedProductId}`
         );
         setIsInWishlist(wishlistResponse.data !== null);
 
         // Obtener las notas
         const notesResponse = await axios.get(
-          `http://54.235.228.15:5173/api/productnotes/${userId}/${selectedProductId}`
+          `http://${import.meta.env.VITE_API_URL}/api/productnotes/${userId}/${selectedProductId}`
         );
         setNotes(notesResponse.data?.note || '');
 
@@ -90,7 +90,7 @@ const ProductDetailForUser = () => {
   const handleNotesSave = async () => {
     setIsSaving(true);
     try {
-      await axios.post(`http://54.235.228.15:5173/api/productnotes`, {
+      await axios.post(`http://${import.meta.env.VITE_API_URL}/api/productnotes`, {
         userID: userId,
         itemID: selectedProductId,
         note: notes,
@@ -118,7 +118,7 @@ const handleButtonClick = async (buttonIndex) => {
   const category = buttonIndex === 0 ? 'Reactive' : buttonIndex === 1 ? 'Sensitive' : 'Safe';
   setIsSaving(true);
   try {
-    const response = await axios.post(`http://54.235.228.15:5173/api/listsensitivity`, {
+    const response = await axios.post(`http://${import.meta.env.VITE_API_URL}/api/listsensitivity`, {
       userID: userId,
       itemID: selectedProductId,
       category,
@@ -129,7 +129,7 @@ const handleButtonClick = async (buttonIndex) => {
     
       for (const ingredient of ingredients) {
         try {
-          const response = await axios.post(`http://54.235.228.15:5173/api/productIngredients`, {
+          const response = await axios.post(`http://${import.meta.env.VITE_API_URL}/api/productIngredients`, {
             userID: userId,
             itemID: ingredient, // Publica cada ingrediente como un itemID
             category, // Categoría seleccionada
@@ -163,7 +163,7 @@ const handleButtonClick = async (buttonIndex) => {
 
   const handleAddToWishlist = async () => {
     try {
-      await axios.post(`http://54.235.228.15:5173/api/wishlist`, {
+      await axios.post(`http://${import.meta.env.VITE_API_URL}/api/wishlist`, {
         userID: userId,
         itemID: selectedProductId,
         dateCreated: new Date(),

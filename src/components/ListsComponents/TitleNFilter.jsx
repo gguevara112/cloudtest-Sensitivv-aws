@@ -18,7 +18,7 @@ const TitleNFilter = () => {
       try {
         setIsLoading(true);
         
-        const response = await axios.get(`http://54.235.228.15:5173/api/listsensitivity/${userId}`);
+        const response = await axios.get(`http://${import.meta.env.VITE_API_URL}/api/listsensitivity/${userId}`);
         const rawItems = response.data;
         
         const detailedItems = await Promise.all(

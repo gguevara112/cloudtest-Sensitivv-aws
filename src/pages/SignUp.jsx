@@ -50,7 +50,7 @@ const SignUp = () => {
     const userLanguage = ['en', 'es'].includes(browserLanguage) ? browserLanguage : 'en';
 
     try {
-      const response = await fetch('http://54.235.228.15:5173/api/users', {
+      const response = await fetch('http://${import.meta.env.VITE_API_URL}/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
