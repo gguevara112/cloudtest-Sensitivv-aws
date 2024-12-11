@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
-// import '@/pages/Login.css';
 import { GoogleLogin } from '@react-oauth/google';
 import {jwtDecode} from 'jwt-decode'; // Necesitamos decodificar el token
+import "./LogIn.css";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
