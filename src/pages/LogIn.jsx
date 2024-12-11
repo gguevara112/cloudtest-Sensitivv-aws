@@ -46,7 +46,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5001/api/login', {
+      const response = await fetch('http://54.235.228.15:5173/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

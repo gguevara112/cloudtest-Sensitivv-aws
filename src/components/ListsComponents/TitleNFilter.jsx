@@ -18,7 +18,7 @@ const TitleNFilter = () => {
       try {
         setIsLoading(true);
         
-        const response = await axios.get(`http://localhost:5001/api/listsensitivity/${userId}`);
+        const response = await axios.get(`http://54.235.228.15:5173/api/listsensitivity/${userId}`);
         const rawItems = response.data;
         
         const detailedItems = await Promise.all(

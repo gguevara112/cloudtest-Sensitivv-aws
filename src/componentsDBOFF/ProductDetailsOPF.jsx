@@ -23,7 +23,7 @@ const ProductDetailsOPF = () => {
         }
     
         // Obtener información del usuario (lista de documentos)
-        const response = await axios.get(`http://localhost:5001/api/users2/${userId}`);
+        const response = await axios.get(`http://54.235.228.15:5173/api/users2/${userId}`);
         
         if (response.data.length > 0) {
           const itemIDs = response.data.map(doc => doc.itemID); // Extraer todos los itemID
@@ -46,7 +46,7 @@ const ProductDetailsOPF = () => {
         }
     
         // Obtener información del usuario (lista de documentos)
-        const response = await axios.get(`http://localhost:5001/api/users2/${userId}`);
+        const response = await axios.get(`http://54.235.228.15:5173/api/users2/${userId}`);
         
         if (response.data.length > 0) {
           const itemIDs2 = response.data.map(doc => doc.category); // Extraer todos los itemID

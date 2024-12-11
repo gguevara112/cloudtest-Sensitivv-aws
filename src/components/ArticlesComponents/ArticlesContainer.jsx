@@ -15,7 +15,7 @@ const ArticlesContainer = () => {
 
     const fetchArticles = async () => {
         try {
-            const response = await fetch('http://localhost:5001/api/articles'); // Ajusta el endpoint si es necesario
+            const response = await fetch('http://54.235.228.15:5173/api/articles'); // Ajusta el endpoint si es necesario
             const data = await response.json();
             setArticles(data);
         } catch (error) {

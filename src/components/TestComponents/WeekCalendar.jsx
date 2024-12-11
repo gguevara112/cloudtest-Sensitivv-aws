@@ -28,7 +28,7 @@ const WeekCalendar = () => {
 
     const fetchTestPeriod = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/testmade/${userId}`);
+        const response = await axios.get(`http://54.235.228.15:5173/api/testmade/${userId}`);
         const tests = response.data;
 
         if (tests.length > 0) {

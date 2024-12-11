@@ -26,7 +26,7 @@ const ProductSearch = () => {
         const [chileResponse, usaResponse, plainProductsResponse] = await Promise.all([
           axios.get(`https://world.openfoodfacts.org/cgi/search.pl?search_terms=${term}&search_simple=1&action=process&json=1&tagtype_0=countries&tag_contains_0=contains&tag_0=Chile`),
           axios.get(`https://world.openfoodfacts.org/cgi/search.pl?search_terms=${term}&search_simple=1&action=process&json=1&tagtype_0=countries&tag_contains_0=contains&tag_0=United States`),
-          axios.get(`http://localhost:5001/api/plainproducts?search=${term}`),
+          axios.get(`http://54.235.228.15:5173/api/plainproducts?search=${term}`),
         ]);
 
         const combinedResults = [
@@ -53,7 +53,7 @@ const ProductSearch = () => {
   const handleProductClick = async (id, source) => {
     try {
       if (source === 'off') {
-        await axios.post(`http://localhost:5001/api/history`, {
+        await axios.post(`http://54.235.228.15:5173/api/history`, {
           userID: userId,
           itemID: id,
           dateAccessed: new Date(),

@@ -19,7 +19,7 @@ const ProfilePopup = ({ closePopup }) => {
       const userId = localStorage.getItem('userId');
       if (userId) {
         try {
-          const response = await fetch(`http://localhost:5001/api/users/${userId}`);
+          const response = await fetch(`http://54.235.228.15:5173/api/users/${userId}`);
           const data = await response.json();
           setUserInfo(data);
           setLanguage(data.language || 'en');
@@ -76,7 +76,7 @@ const ProfilePopup = ({ closePopup }) => {
     if (userId) {
       try {
         // Actualizar preferencias del usuario
-        await fetch(`http://localhost:5001/api/users/${userId}`, {
+        await fetch(`http://54.235.228.15:5173/api/users/${userId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -89,7 +89,7 @@ const ProfilePopup = ({ closePopup }) => {
 
         // Guardar el test realizado en la tabla "testmade" con DaysTestSelected
         if (itemID) {
-          await fetch(`http://localhost:5001/api/testmade`, {
+          await fetch(`http://54.235.228.15:5173/api/testmade`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

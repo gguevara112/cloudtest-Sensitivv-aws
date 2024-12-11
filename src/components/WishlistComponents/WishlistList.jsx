@@ -18,7 +18,7 @@ const Wishlist = () => {
     const fetchWishlist = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(`http://localhost:5001/api/wishlist/${userId}`);
+        const response = await axios.get(`http://54.235.228.15:5173/api/wishlist/${userId}`);
         const wishlistItems = response.data;
         const detailedItems = await Promise.all(
           wishlistItems.map(async (item) => {
@@ -67,7 +67,7 @@ const Wishlist = () => {
 
   const handleDelete = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:5001/api/wishlist/${userId}/${itemId}`);
+      await axios.delete(`http://54.235.228.15:5173/api/wishlist/${userId}/${itemId}`);
       setItems(items.filter(item => item.itemID !== itemId));
       navigate('/wishlist');
       setShowToast(true); // Mostrar el toast

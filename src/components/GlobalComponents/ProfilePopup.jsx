@@ -17,7 +17,7 @@ const ProfilePopup = ({ closePopup }) => {
       const userId = localStorage.getItem('userId');
       if (userId) {
         try {
-          const response = await fetch(`http://localhost:5001/api/users/${userId}`);
+          const response = await fetch(`http://54.235.228.15:5173/api/users/${userId}`);
           const data = await response.json();
           setUserInfo(data);
           setLanguage(data.language || 'en');
@@ -52,7 +52,7 @@ const ProfilePopup = ({ closePopup }) => {
     const userId = localStorage.getItem('userId');
     if (userId) {
       try {
-        await fetch(`http://localhost:5001/api/users/${userId}`, {
+        await fetch(`http://54.235.228.15:5173/api/users/${userId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
