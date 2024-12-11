@@ -1,50 +1,46 @@
+// Importar módulos necesarios
 import express from 'express';
-import { MongoClient, ObjectId } from 'mongodb';
-import cors from 'cors';
 import bcrypt from 'bcrypt';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import { OAuth2Client } from 'google-auth-library';
 import bodyParser from 'body-parser';
+import cors from 'cors';
+import { MongoClient, ObjectId } from 'mongodb'; // Asegúrate de importar ObjectId
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+// Configuración de dotenv y variables de entorno
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 8080;
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 const clientG = new OAuth2Client('785282538969-nhq7ursh8lkblr90a9rvi0qlg2ejjqmk.apps.googleusercontent.com');
+
+// Definir manualmente __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Middleware
+// Middleware global
 app.use(bodyParser.json());
 app.use(cors());
-
-
-
 app.use(express.json());
 
-// Sirve los archivos estáticos
+// Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'dist')));
-
-// Maneja todas las rutas con el archivo index.html
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
 
 // Conexión a la base de datos
 async function connectToDatabase() {
   try {
     await client.connect();
-    console.log("conecting to database");
+    console.log('Connected to database');
   } catch (error) {
-    console.error("Error> database conection", error);
+    console.error('Error connecting to database:', error);
+    process.exit(1);
   }
 }
-
 // Endpoint para obtener todos los artículos
 app.get('/api/articles', async (req, res) => {
   try {
@@ -611,8 +607,14 @@ app.get('/api/productIngredients/:userID/:itemID', async (req, res) => {
 
 
 
-  app.listen(port, '0.0.0.0', () => {
-    connectToDatabase();
-    console.log(`Servidor escuchando en http://0.0.0.0:${port}`);
-  });
-  
+
+// Ruta genérica para manejar SPA (al final del archivo)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+// Inicia el servidor y conecta a la base de datos
+app.listen(port, () => {
+  connectToDatabase();
+  console.log(`Servidor escuchando en 0.0.0.0:${port}`);
+});
