@@ -20,7 +20,12 @@ const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: ['http://54.235.228.15:5173'], // Cambia a tu IP pública
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
+
 app.use(express.json());
 
 // Sirve los archivos estáticos
@@ -608,9 +613,8 @@ app.get('/api/productIngredients/:userID/:itemID', async (req, res) => {
 
 
 
-
-// Inicia el servidor y conecta a la base de datos
-app.listen(port, () => {
-  connectToDatabase();
-  console.log(`Servidor escuchando en http://localhost:${port}`);
-});
+  app.listen(port, '0.0.0.0', () => {
+    connectToDatabase();
+    console.log(`Servidor escuchando en http://0.0.0.0:${port}`);
+  });
+  
