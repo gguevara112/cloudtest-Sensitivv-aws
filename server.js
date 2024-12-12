@@ -616,5 +616,5 @@ app.get('*', (req, res) => {
 // Inicia el servidor y conecta a la base de datos
 app.listen(port, () => {
   connectToDatabase();
-  console.log(`Servidor escuchando en 0.0.0.0:${port}`);
+  console.log(`Servidor escuchando en http://54.82.237.107:${port}`);
 });
