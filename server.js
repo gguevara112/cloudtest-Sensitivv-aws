@@ -3,7 +3,6 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import axios from 'axios';
 import dotenv from 'dotenv';
-import { OAuth2Client } from 'google-auth-library';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { MongoClient, ObjectId } from 'mongodb'; // Asegúrate de importar ObjectId
@@ -17,7 +16,6 @@ const app = express();
 const port = process.env.PORT || 8080;
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
-const clientG = new OAuth2Client('785282538969-nhq7ursh8lkblr90a9rvi0qlg2ejjqmk.apps.googleusercontent.com');
 
 // Definir manualmente __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -459,24 +457,6 @@ app.get('/api/testmade/:userID', async (req, res) => {
   }
 });
 
-
-app.post('/api/google-login', async (req, res) => {
-  const { token } = req.body;
-
-  try {
-    const ticket = await clientG.verifyIdToken({
-      idToken: token,
-      audience: '785282538969-nhq7ursh8lkblr90a9rvi0qlg2ejjqmk.apps.googleusercontent.com',
-    });
-    const payload = ticket.getPayload();
-    const userId = payload['sub'];
-    const name = payload['name'];
-
-    res.json({ userId, name });
-  } catch (error) {
-    res.status(401).json({ error: 'Token inválido' });
-  }
-});
 
 
 // Endpoint para buscar en la colección 'plainproducts'
